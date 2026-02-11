@@ -1,25 +1,23 @@
 package com.narxoz.rpg.character;
 
-
-public class Warrior implements Character {
-
+public class Archer implements Character{
     private String name;
     private int health;
     private int mana;
     private int strength;
     private int intelligence;
-    
-    public Warrior(String name) {
+
+    public Archer(String name) {
         this.name = name;
-        this.health = 150;
-        this.mana = 30;
-        this.strength = 25;
-        this.intelligence = 10;
+        this.health = 100;
+        this.mana = 60;
+        this.strength = 18;
+        this.intelligence = 15;
     }
 
     @Override
     public void getStats() {
-        System.out.println("=== Warrior Stats ===");
+        System.out.println("=== Archer Stats ===");
         System.out.println("Name: " + name);
         System.out.println("Health: " + health);
         System.out.println("Mana: " + mana);
@@ -29,6 +27,6 @@ public class Warrior implements Character {
 
     @Override
     public void useSpecialAbility() {
-        System.out.println(name + " uses Berserk! Damage greatly increased!");
+        System.out.println(name + " uses Precision Shot! Critical hit!");
     }
 }
