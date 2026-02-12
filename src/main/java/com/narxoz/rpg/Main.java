@@ -1,15 +1,14 @@
 package com.narxoz.rpg;
 
+import com.narxoz.rpg.character.Character;
+import com.narxoz.rpg.equipment.Armor;
+import com.narxoz.rpg.equipment.Weapon;
 import com.narxoz.rpg.factory.ArcherCreator;
 import com.narxoz.rpg.factory.CharacterCreator;
-import com.narxoz.rpg.factory.MageCreator;
-import com.narxoz.rpg.factory.WarriorCreator;
-import com.narxoz.rpg.character.Character;
-
 import com.narxoz.rpg.factory.EquipmentFactory;
+import com.narxoz.rpg.factory.MageCreator;
 import com.narxoz.rpg.factory.MedievalEquipmentFactory;
-import com.narxoz.rpg.equipment.Weapon;
-import com.narxoz.rpg.equipment.Armor;
+import com.narxoz.rpg.factory.WarriorCreator;
 
 
 
@@ -17,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         CharacterCreator warriorFactory = new WarriorCreator();
         Character warrior = warriorFactory.createCharacter("Thorin");
+    
 
         warrior.getStats();
         warrior.useSpecialAbility();
@@ -39,15 +39,34 @@ public class Main {
         
         System.out.println();
 
-        System.out.println("\n=== Equipment Test ===");
+        System.out.println("=== Equipment ===");
 
         EquipmentFactory medievalFactory = new MedievalEquipmentFactory();
 
-        Weapon weapon = medievalFactory.createWeapon();
-        Armor armor = medievalFactory.createArmor();
+        Weapon weapon_warrior = medievalFactory.createWeapon();
+        Armor armor_warrior = medievalFactory.createArmor();
 
-        weapon.showWeapon();
-        armor.showArmor();
+        warrior.equipWeapon(weapon_warrior);
+        warrior.equipArmor(armor_warrior);
+
+        System.out.println("Warrior Equipment:");
+        warrior.showEquipment();
+
+
+        System.out.println("----");
+        EquipmentFactory elvenFactory = new MedievalEquipmentFactory();
+
+        Weapon weapon_archer=elvenFactory.createWeapon();
+        Armor armor_archer=elvenFactory.createArmor();
+        archer.equipWeapon(weapon_archer);
+        archer.equipArmor(armor_archer);
+        System.out.println("Archer Equipment:");
+        archer.showEquipment();
+
+
+        
+
+        
 
 
         /*System.out.println();
@@ -62,4 +81,6 @@ public class Main {
         archer.getStats();
         archer.useSpecialAbility(); */
     }
+
+
 }

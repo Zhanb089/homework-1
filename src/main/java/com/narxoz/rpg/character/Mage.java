@@ -1,5 +1,8 @@
 package com.narxoz.rpg.character;
 
+import com.narxoz.rpg.equipment.Armor;
+import com.narxoz.rpg.equipment.Weapon;
+
 public class Mage implements Character{
     
     private String name;
@@ -7,6 +10,8 @@ public class Mage implements Character{
     private int mana;
     private int strength;
     private int intelligence;
+    private Weapon weapon;
+    private Armor armor;
 
     public Mage(String name) {
         this.name = name;
@@ -29,5 +34,21 @@ public class Mage implements Character{
     @Override
     public void useSpecialAbility() {
         System.out.println(name + " casts Fireball! Massive magic damage!");
+    }
+
+    @Override
+    public void equipWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    @Override
+    public void equipArmor(Armor armor) {
+        this.armor = armor;
+    }
+
+    @Override
+    public void showEquipment() {
+        if (weapon != null) weapon.showWeapon();
+        if (armor != null) armor.showArmor();
     }
 }
