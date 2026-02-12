@@ -1,13 +1,16 @@
 package com.narxoz.rpg;
 
-import com.narxoz.rpg.character.Mage;
-import com.narxoz.rpg.character.Warrior;
 import com.narxoz.rpg.factory.ArcherCreator;
 import com.narxoz.rpg.factory.CharacterCreator;
 import com.narxoz.rpg.factory.MageCreator;
 import com.narxoz.rpg.factory.WarriorCreator;
-import com.narxoz.rpg.character.Archer;
 import com.narxoz.rpg.character.Character;
+
+import com.narxoz.rpg.factory.EquipmentFactory;
+import com.narxoz.rpg.factory.MedievalEquipmentFactory;
+import com.narxoz.rpg.equipment.Weapon;
+import com.narxoz.rpg.equipment.Armor;
+
 
 
 public class Main {
@@ -34,6 +37,19 @@ public class Main {
         archer.getStats();
         archer.useSpecialAbility();
         
+        System.out.println();
+
+        System.out.println("\n=== Equipment Test ===");
+
+        EquipmentFactory medievalFactory = new MedievalEquipmentFactory();
+
+        Weapon weapon = medievalFactory.createWeapon();
+        Armor armor = medievalFactory.createArmor();
+
+        weapon.showWeapon();
+        armor.showArmor();
+
+
         /*System.out.println();
 
         Character mage = new Mage("Gandalf");
